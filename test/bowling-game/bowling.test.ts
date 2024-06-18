@@ -25,7 +25,7 @@ describe('bowling game', () => {
         expect(bowlingGame.rolls).toHaveLength(1)
     })
 
-    it('should calculate total score as 0 when fails all the throws', () => {
+    it('should score 0 when fails all the throws', () => {
         let bowlingGame = new BowlingGame();
 
         Array.from({ length: 20 }).map(() => {
@@ -33,5 +33,15 @@ describe('bowling game', () => {
         })
 
         expect(bowlingGame.score()).toBe(0)
+    })
+
+    it('should score 20 when when it knock down 1 per throw', () => {
+        let bowlingGame = new BowlingGame();
+
+        Array.from({ length: 20 }).map(() => {
+            bowlingGame.roll(1)
+        })
+
+        expect(bowlingGame.score()).toBe(20)
     })
 })
