@@ -5,7 +5,7 @@ class BowlingGame {
         this.rolls.push(pins)
     }
 
-    calculateTotal() {
+    score() {
         return this.rolls.reduce((total, currentValue) => (total + currentValue))
     }
 }
@@ -32,6 +32,6 @@ describe('bowling game', () => {
             bowlingGame.roll(0)
         })
 
-        expect(bowlingGame.calculateTotal()).toBe(0)
+        expect(bowlingGame.score()).toBe(0)
     })
 })
