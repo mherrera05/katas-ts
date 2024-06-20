@@ -6,6 +6,24 @@ export class BowlingGame {
     }
 
     score() {
-        return this.rolls.reduce((total, currentValue) => (total + currentValue))
+        return this.calculateScore().total
     }
+
+    calculateScore() {
+        return this.rolls.reduce(({ total, index }) => {
+            if (index >= this.rolls.length) {
+                return { total, index }
+            }
+            if (this.rolls[index] + this.rolls[index + 1] == 10) {
+                total += 10 + this.rolls[index + 2]
+                index += 2
+            } else {
+                total += this.rolls[index]
+                index++
+            }
+            return { total, index }
+        }, { total: 0, index: 0 }
+        )
+    }
+
 }

@@ -24,9 +24,20 @@ describe('bowling game', () => {
         expect(game.score()).toBe(0)
     })
 
-    it('should score 20 when when it knock down 1 per throw', () => {
+    it('should score 20 when it knock down 1 per throw', () => {
         Array.from({ length: 20 }).map(() => {
             game.roll(1)
+        })
+
+        expect(game.score()).toBe(20)
+    })
+
+    it('should score 20 when it throws a spare a get an extra ball', () => {
+        game.roll(5)
+        game.roll(5)
+        game.roll(5)
+        Array.from({ length: 17}).map(() => {
+            game.roll(0)
         })
 
         expect(game.score()).toBe(20)
