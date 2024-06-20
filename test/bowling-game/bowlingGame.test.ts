@@ -17,17 +17,13 @@ describe('bowling game', () => {
     })
 
     it('should score 0 when fails all the throws', () => {
-        Array.from({ length: 20 }).map(() => {
-            game.roll(0)
-        })
+        makeRolls(20, 0)
 
         expect(game.score()).toBe(0)
     })
 
     it('should score 20 when it knock down 1 per throw', () => {
-        Array.from({ length: 20 }).map(() => {
-            game.roll(1)
-        })
+        makeRolls(20, 1)
 
         expect(game.score()).toBe(20)
     })
@@ -36,10 +32,12 @@ describe('bowling game', () => {
         game.roll(5)
         game.roll(5)
         game.roll(5)
-        Array.from({ length: 17}).map(() => {
-            game.roll(0)
-        })
+        makeRolls(17, 0)
 
         expect(game.score()).toBe(20)
     })
+
+    function makeRolls(quantity: number, pins: number) {
+        Array.from({ length: quantity }).map(() => game.roll(pins))
+    }
 })
