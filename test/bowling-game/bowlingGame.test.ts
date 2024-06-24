@@ -41,9 +41,15 @@ describe('bowling game', () => {
         game.roll(10)
         game.roll(2)
         game.roll(3)
-        makeRolls(17,0)
+        makeRolls(17, 0)
 
         expect(game.score()).toBe(20)
+    })
+
+    it('should score 300 when it is a perfect game', () => {
+        makeRolls(12, 10)
+
+        expect(game.score()).toBe(300)
     })
 
     function makeRolls(quantity: number, pins: number) {
