@@ -28,11 +28,20 @@ describe('bowling game', () => {
         expect(game.score()).toBe(20)
     })
 
-    it('should score 20 when it throws a spare a get an extra ball', () => {
+    it('should score 20 when it throws a spare and get an extra ball', () => {
         game.roll(5)
         game.roll(5)
         game.roll(5)
         makeRolls(17, 0)
+
+        expect(game.score()).toBe(20)
+    })
+
+    it('should score 20 when it throws a strike and get an extra ball', () => {
+        game.roll(10)
+        game.roll(2)
+        game.roll(3)
+        makeRolls(17,0)
 
         expect(game.score()).toBe(20)
     })
