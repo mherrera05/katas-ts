@@ -41,6 +41,6 @@ export class BowlingGame {
 
     private getFrames() {
         const numberOfFrames: number = 10
-        return Array.from({length: numberOfFrames}).map((_, index) => index)
+        return Array.from({ length: numberOfFrames }).map((_, index) => index)
     }
 }

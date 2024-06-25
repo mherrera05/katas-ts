@@ -52,7 +52,14 @@ describe('bowling game', () => {
         expect(game.score()).toBe(300)
     })
 
-    function makeRolls(quantity: number, pins: number) {
-        Array.from({ length: quantity }).map(() => game.roll(pins))
-    }
+    it('should score 155 whe it throws all as spare', () => {
+        makeRolls(20, 5)
+        game.roll(10)
+
+        expect(game.score()).toBe(155)
+    })
 })
+
+function makeRolls(quantity: number, pins: number) {
+    Array.from({ length: quantity }).map(() => game.roll(pins))
+}
