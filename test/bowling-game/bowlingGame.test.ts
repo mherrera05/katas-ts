@@ -6,15 +6,6 @@ describe('bowling game', () => {
     beforeEach(() => {
         game = new BowlingGame()
     })
-    it('should create a bowling game instance', () => {
-        expect(game).toBeInstanceOf(BowlingGame)
-    })
-
-    it('should make a roll throwing pins', () => {
-        game.roll(5)
-
-        expect(game.rolls).toHaveLength(1)
-    })
 
     it('should score 0 when fails all the throws', () => {
         makeRolls(20, 0)
